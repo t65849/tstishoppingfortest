@@ -52,8 +52,12 @@ app.post('/messages', function (request, response) {
         logger.info('type: ' + results[idx].type);
         if (results[idx].type == 'message') {
             if (results[idx].message.type == 'text') {
-                SendMessage(acct, results[idx].message.text, 'tstiisacompanyfortatung', reply_token, function (ret) {
-                });
+                if(results[idx].message.text == '訂購'){
+                    
+                } else {
+                    SendMessage(acct, results[idx].message.text, 'tstiisacompanyfortatung', reply_token, function (ret) {
+                    });
+                }
             }
         }
     }
