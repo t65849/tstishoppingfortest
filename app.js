@@ -63,7 +63,7 @@ app.post('/messages', function (request, response) {
 app.post('/api/alert_action', function (request, response) {
     console.log('POST /api/alert_action');
     console.log(JSON.stringify(request.body));
-    /*SendMessage(acct, body_stringify, 'tstiisacompanyfortatung', reply_token, function (ret) {
+    /*SendMessage("R230fdb328b23308c554983ab07a4543f", body_stringify, 'tstiisacompanyfortatung', reply_token, function (ret) {
         if(ret){
             response.send({ "success": "success" });
         } else {
