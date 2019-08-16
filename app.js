@@ -71,7 +71,7 @@ app.post('/api/alert_action', function (request, response) {
     var owner = request.body.owner;
     var admin = request.body.admin;
     var message_string = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "admin:"+admin;
-    SendMessage("R230fdb328b23308c554983ab07a4543f", message_string, 'tstiisacompanyfortatung', reply_token, function (ret) {
+    SendMessage("R230fdb328b23308c554983ab07a4543f", message_string, 'tstiisacompanyfortatung', "reply_token", function (ret) {
         if(ret){
             response.send({ "success": "success" });
         } else {
