@@ -16,7 +16,37 @@
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
-      //
+      $("#BtnSend").click(function(){
+        var data = {
+          "result": {
+		        "sourcetype" : "mongod",
+		        "count" : "8"
+	        },
+	        "sid" : "scheduler_admin_search_W2_at_14232356_132",
+	        "results_link" : "http://web.example.local:8000/app/search/@go?sid=scheduler_admin_search_W2_at_14232356_132",
+	        "search_name" : null,
+	        "owner" : "admin",
+	        "app" : "search"
+        }
+        $.ajax({
+            async: false,
+            crossDomain: true,
+            url: "https://tstishoppingfortest01.herokuapp.com/api/alert_action",
+            method: 'POST',
+            headers: {
+                "Content-Type":"application/json; charset=utf-8"
+            },
+            dataType: "json",
+            data: JSON.stringify(data),
+            success: function (ret) {
+              console.log(JSON.stringify(ret));
+              console.log("success");
+            }/*,
+            error: function (ret) {
+              console.log("error");
+            }*/
+        });
+      })
     });
   </script>
 </head>
@@ -28,7 +58,7 @@
         <h5 class="card-title">Splunk</h5>
         <p class="card-text">請輸入</p>
         <input id="Member"></input>
-        <td><button id="BtnInvite" class="btn btn-success">送出</button></td>
+        <td><button id="BtnSend" class="btn btn-success">送出</button></td>
       </div>
     </div>
   </div>

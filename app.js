@@ -59,8 +59,8 @@ app.post('/messages', function (request, response) {
 
 app.post('/api/alert_action', function (request, response) {
     console.log('POST /api/alert_action');
-    console.log(request.body);
-    response.send("200");
+    console.log(JSON.stringify(request.body));
+    response.send({ "success": "success" });
 });
 
 var http = require('http');
