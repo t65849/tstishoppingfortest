@@ -88,7 +88,6 @@ app.get('/Splunk.html', function (request, response) {
     config = JSON.parse(config);
     var url = config.auto_complete_data_gateway;
     var member_pages = fs.readFileSync(path.join(__dirname, '/pages/Splunk.html'));
-    var req = require('request');
     response.send(member_pages);
     /*req({
         headers: {
