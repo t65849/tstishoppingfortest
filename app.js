@@ -46,6 +46,7 @@ app.post('/messages', function (request, response) {
     for (var idx = 0; idx < results.length; idx++) {
         var acct = results[idx].source.userId;
         var reply_token = results[idx].replyToken;
+        logger.info('userId: ' + acct);
         logger.info('reply token: ' + results[idx].replyToken);
         logger.info('createdTime: ' + results[idx].timestamp);
         logger.info('from: ' + results[idx].source.userId);
@@ -62,6 +63,13 @@ app.post('/messages', function (request, response) {
 app.post('/api/alert_action', function (request, response) {
     console.log('POST /api/alert_action');
     console.log(JSON.stringify(request.body));
+    /*SendMessage(acct, body_stringify, 'tstiisacompanyfortatung', reply_token, function (ret) {
+        if(ret){
+            response.send({ "success": "success" });
+        } else {
+            response.send({ "error": "error" });
+        }
+    });*/
     response.send({ "success": "success" });
 });
 
