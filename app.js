@@ -85,7 +85,7 @@ app.get('/Splunk', function (request, response) {
     request.header("Content-Type", 'text/html');
     const fs = require('fs');
     const path = require('path');
-    fs.readFile(__dirname + '/Main.html', 'utf8', function (err, data) {
+    fs.readFile(__dirname + '/pages/Splunk.html', 'utf8', function (err, data) {
         if (err) {
             res.send(err);
         }
