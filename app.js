@@ -63,14 +63,22 @@ app.post('/messages', function (request, response) {
 app.post('/api/alert_action', function (request, response) {
     console.log('POST /api/alert_action');
     console.log(JSON.stringify(request.body));
-    /*SendMessage("R230fdb328b23308c554983ab07a4543f", body_stringify, 'tstiisacompanyfortatung', reply_token, function (ret) {
+    var sourcetype = request.body.result.sourcetype;
+    var count = request.body.result.count;
+    var sid = request.body.sid;
+    var results_link = request.body.results_link;
+    var search_name = request.body.search_name;
+    var owner = request.body.owner;
+    var admin = request.body.admin;
+    var message_string = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "admin:"+admin;
+    SendMessage("R230fdb328b23308c554983ab07a4543f", message_string, 'tstiisacompanyfortatung', reply_token, function (ret) {
         if(ret){
             response.send({ "success": "success" });
         } else {
             response.send({ "error": "error" });
         }
-    });*/
-    response.send({ "success": "success" });
+    });
+    //response.send({ "success": "success" });
 });
 
 var http = require('http');

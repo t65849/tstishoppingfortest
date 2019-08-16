@@ -17,13 +17,13 @@
   <script type="text/javascript">
     $(document).ready(function () {
       $("#BtnSend").click(function(){
-        var sourcetype = $("sourcetype").val();
-        var count = $("count").val();
-        var sid = $("sid").val();
-        var results_link = $("results_link").val();
-        var search_name = $("search_name").val();
-        var owner = $("owner").val();
-        var app = $("app").val();
+        var sourcetype = $("#sourcetype").val();
+        var count = $("#count").val();
+        var sid = $("#sid").val();
+        var results_link = $("#results_link").val();
+        var search_name = $("#search_name").val();
+        var owner = $("#owner").val();
+        var app = $("#app").val();
         var data = {
           "result": {
 		        "sourcetype" : sourcetype,
@@ -35,6 +35,7 @@
 	        "owner" : owner,
 	        "app" : app
         }
+        console.log(JSON.stringify(data));
         $.ajax({
             async: false,
             crossDomain: true,
@@ -46,7 +47,7 @@
             dataType: "json",
             data: JSON.stringify(data),
             success: function (ret) {
-              alert("success");
+              console.log("success");
             },
             error: function (ret) {
               alert("error");
@@ -69,6 +70,10 @@
             <td><p class="card-text">sourcetype:&nbsp</p></td>
             <td><input class="form-control" id="sourcetype" value="mongod"></td>
           </tr>
+          <tr>
+              <td><p class="card-text">count:&nbsp</p></td>
+              <td><input class="form-control" id="count" value="8"></td>
+            </tr>
           <tr>
             <td><p class="card-text">sid:&nbsp</p></td>
             <td><input class="form-control" id="sid" value="scheduler_admin_search_W2_at_14232356_132"></td>
