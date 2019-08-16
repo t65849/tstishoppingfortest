@@ -82,11 +82,11 @@ app.post('/api/alert_action', function (request, response) {
 });
 
 app.get('/Splunk', function (request, response) {
+    request.header("Content-Type", 'text/html');
     const fs = require('fs');
     const path = require('path');
     var config = require('fs').readFileSync(path.join(__dirname, '/config.json'));
     config = JSON.parse(config);
-    var url = config.auto_complete_data_gateway;
     var member_pages = fs.readFileSync(path.join(__dirname, '/pages/Splunk.html'));
     response.send(member_pages);
     /*req({
