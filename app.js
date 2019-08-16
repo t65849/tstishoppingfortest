@@ -57,6 +57,11 @@ app.post('/messages', function (request, response) {
     }
 });
 
+app.post('/api/alert_action', function (request, response) {
+    console.log('POST /api/alert_action');
+    console.log(request.body);
+});
+
 var http = require('http');
 var server = http.Server(app);	// create express server
 var options = {
