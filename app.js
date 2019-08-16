@@ -85,10 +85,12 @@ app.get('/Splunk', function (request, response) {
     request.header("Content-Type", 'text/html');
     const fs = require('fs');
     const path = require('path');
-    var config = require('fs').readFileSync(path.join(__dirname, '/config.json'));
-    config = JSON.parse(config);
-    var member_pages = fs.readFileSync(path.join(__dirname, '/pages/Splunk.html'));
-    response.send(member_pages);
+    fs.readFile(__dirname + '/Main.html', 'utf8', function (err, data) {
+        if (err) {
+            res.send(err);
+        }
+        this.res.send(data);
+    }.bind({ req: request, res: response }));
     /*req({
         headers: {
             'Content-Type': 'application/json'
