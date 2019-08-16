@@ -60,6 +60,7 @@ app.post('/messages', function (request, response) {
 app.post('/api/alert_action', function (request, response) {
     console.log('POST /api/alert_action');
     console.log(request.body);
+    response.send("200");
 });
 
 var http = require('http');
