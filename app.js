@@ -81,7 +81,7 @@ app.post('/api/alert_action', function (request, response) {
     //response.send({ "success": "success" });
 });
 
-app.get('/Splunk.html', function (request, response) {
+app.get('/Splunk', function (request, response) {
     const fs = require('fs');
     const path = require('path');
     var config = require('fs').readFileSync(path.join(__dirname, '/config.json'));
