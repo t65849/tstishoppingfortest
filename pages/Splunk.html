@@ -17,16 +17,23 @@
   <script type="text/javascript">
     $(document).ready(function () {
       $("#BtnSend").click(function(){
+        var sourcetype = $("sourcetype").val();
+        var count = $("count").val();
+        var sid = $("sid").val();
+        var results_link = $("results_link").val();
+        var search_name = $("search_name").val();
+        var owner = $("owner").val();
+        var app = $("app").val();
         var data = {
           "result": {
-		        "sourcetype" : "mongod",
-		        "count" : "8"
+		        "sourcetype" : sourcetype,
+		        "count" : count
 	        },
-	        "sid" : "scheduler_admin_search_W2_at_14232356_132",
-	        "results_link" : "http://web.example.local:8000/app/search/@go?sid=scheduler_admin_search_W2_at_14232356_132",
-	        "search_name" : null,
-	        "owner" : "admin",
-	        "app" : "search"
+	        "sid" : sid,
+	        "results_link" : results_link,
+	        "search_name" : search_name,
+	        "owner" : owner,
+	        "app" : app
         }
         $.ajax({
             async: false,
@@ -57,7 +64,34 @@
       <div class="card-body">
         <h5 class="card-title">Splunk</h5>
         <p class="card-text">請輸入</p>
-        <input id="Member"></input>
+        <table id="TableMeetingMember" class="table hidden">
+          <thead>
+          <tr>
+            <td><p class="card-text">sourcetype:&nbsp</p></td>
+            <td><input class="form-control" id="sourcetype" value="mongod"></td>
+          </tr>
+          <tr>
+            <td><p class="card-text">sid:&nbsp</p></td>
+            <td><input class="form-control" id="sid" value="scheduler_admin_search_W2_at_14232356_132"></td>
+          </tr>
+          <tr>
+              <td><p class="card-text">results_link:&nbsp</p></td>
+              <td><input class="form-control" id="results_link" value="http://web.example.local:8000/app/search/@go?sid=scheduler_admin_search_W2_at_14232356_132"></td>
+          </tr>
+          <tr>
+              <td><p class="card-text">search_name:&nbsp</p></td>
+              <td><input class="form-control" id="search_name" value="null"></td>
+          </tr>
+          <tr>
+              <td><p class="card-text">owner:&nbsp</p></td>
+              <td><input class="form-control" id="owner" value="admin"></td>
+          </tr>
+          <tr>
+              <td><p class="card-text">app:&nbsp</p></td>
+              <td><input class="form-control" id="app" value="search"></td>
+          </tr>
+        </thead>
+        </table>
         <td><button id="BtnSend" class="btn btn-success">送出</button></td>
       </div>
     </div>

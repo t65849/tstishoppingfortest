@@ -52,6 +52,8 @@ app.post('/messages', function (request, response) {
         logger.info('type: ' + results[idx].type);
         if (results[idx].type == 'message') {
             SendMessage(acct, results[idx].message.text, 'tstiisacompanyfortatung', reply_token, function (ret) {
+                console.log(ret);
+                console.log(JSON.stringify(ret));
             });
         }
     }
