@@ -81,6 +81,51 @@ app.post('/api/alert_action', function (request, response) {
     //response.send({ "success": "success" });
 });
 
+app.get('/Meeting-Member-Detection', function (request, response) {
+    const fs = require('fs');
+    const path = require('path');
+    var config = require('fs').readFileSync(path.join(__dirname, '/config.json'));
+    config = JSON.parse(config);
+    var url = config.auto_complete_data_gateway;
+    var member_pages = fs.readFileSync(path.join(__dirname, '/pages/Splunk.html'));
+    var req = require('request');
+    response.send(member_pages);
+    /*req({
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        uri: 'https://tsti-qbe-gateway.azurewebsites.net/api/mailData',
+        method: 'GET',
+        body: JSON.stringify({ cus_Email: customerEmail, g_token: graph1_token })
+    }, function (err, res, body) {
+        user_email = body;
+        var member_pages = fs.readFileSync(path.join(__dirname, '/pages/Member.htm'));
+        if (customerEmail) {
+            member_pages += "<script type='text/javascript'>var _autocomplete = " + user_email + ";</script>"
+                + "<script type='text/javascript'>var _flow_id = '" + this.flow_id + "'</script>"
+                + "<script type='text/javascript'>var _conversation_Id = '" + this.conversation_Id + "'</script>"
+                + "<script type='text/javascript'>var _customerEmail = '" + this.customerEmail + "'</script>"
+                + "<script type='text/javascript'>var _dialog_id = '" + this.dialog_id + "'</script>";
+        } else {
+            member_pages += "<script type='text/javascript'>var _autocomplete = " + user_email + ";</script>"
+                + "<script type='text/javascript'>var _flow_id = '" + this.flow_id + "'</script>"
+                + "<script type='text/javascript'>var _conversation_Id = '" + this.conversation_Id + "'</script>"
+                + "<script type='text/javascript'>var _customerEmail = '" + undefined + "'</script>"
+                + "<script type='text/javascript'>var _dialog_id = '" + this.dialog_id + "'</script>";
+        }
+        var headers = {
+            'Content-Type': 'text/html'
+        };
+        this.res.send(member_pages);
+    }.bind({
+        res: response,
+        dialog_id: dialog_id,
+        conversation_Id: conversation_Id,
+        flow_id: flow_id,
+        customerEmail: customerEmail
+    }))*/
+})
+
 var http = require('http');
 var server = http.Server(app);	// create express server
 var options = {
