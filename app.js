@@ -54,14 +54,14 @@ app.post('/messages', function (request, response) {
         if (results[idx].type == 'message') {
             var text = results[idx].message.text;
             text = JSON.parse(text);
-            var sourcetype = text.sourcetype;
-            var count = text.count;
+            var sourcetype = text.result.sourcetype;
+            var count = text.result.count;
             var sid = text.sid;
             var results_link = text.results_link;
             var search_name = text.search_name;
             var owner = text.owner;
-            var admin = text.admin;
-            var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "admin:"+admin;
+            var app = text.app;
+            var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "admin:"+app;
             SendMessage(acct, messages, 'tstiisacompanyfortatung', reply_token, function (ret) {
                 if(ret == false){
                     SendMessage("R230fdb328b23308c554983ab07a4543f", messages, 'tstiisacompanyfortatung', "reply_token", function (ret) {
