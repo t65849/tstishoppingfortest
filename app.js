@@ -52,10 +52,31 @@ app.post('/messages', function (request, response) {
         logger.info('from: ' + results[idx].source.userId);
         logger.info('type: ' + results[idx].type);
         if (results[idx].type == 'message') {
-            SendMessage(acct, results[idx].message.text, 'tstiisacompanyfortatung', reply_token, function (ret) {
-                console.log(ret);
-                console.log(JSON.stringify(ret));
+            var text = results[idx].message.text;
+            text = JSON.parse(text);
+            var sourcetype = text.sourcetype;
+            var count = text.count;
+            var sid = text.sid;
+            var results_link = text.results_link;
+            var search_name = text.search_name;
+            var owner = text.owner;
+            var admin = text.admin;
+            var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "admin:"+admin;
+            SendMessage(acct, messages, 'tstiisacompanyfortatung', reply_token, function (ret) {
+                if(ret == false){
+                    SendMessage("R230fdb328b23308c554983ab07a4543f", messages, 'tstiisacompanyfortatung', "reply_token", function (ret) {
+                    });
+                    SendMessage("R230fdb328b23308c554983ab07a4543f", "error", 'tstiisacompanyfortatung', "reply_token", function (ret) {
+                    });
+                }
             });
+            //SendMessage("R230fdb328b23308c554983ab07a4543f", messages, 'tstiisacompanyfortatung', "reply_token", function (ret) {
+                /*if(ret){
+                    response.send({ "success": "success" });
+                } else {
+                    response.send({ "error": "error" });
+                }*/
+            //});
         }
     }
 });
