@@ -57,12 +57,16 @@ app.post('/messages', function (request, response) {
             var sourcetype = text.result.sourcetype;
             sourcetype = sourcetype.toString();
             var count = text.result.count;
-            //count = count.toString();
+            count = count.toString();
             var sid = text.sid;
+            sid = sid.toString();
             var results_link = text.results_link;
+            results_link = results_link.toString();
             var search_name = text.search_name;
             var owner = text.owner;
+            owner = owner.toString();
             var app = text.app;
+            app = app.toString();
             //var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "app:"+app;
             /*SendMessage(acct, messages, 'tstiisacompanyfortatung', reply_token, function (ret) {
                 if(ret == false){
@@ -181,6 +185,29 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                       {
                                         "type": "text",
                                         "text": sid,
+                                        "wrap": true,
+                                        "color": "#666666",
+                                        "size": "md",
+                                        "flex": 3
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "spacing": "sm",
+                                    "contents": [
+                                      {
+                                        "type": "text",
+                                        "text": "results_link:",
+                                        "align": "center",
+                                        "color": "#aaaaaa",
+                                        "size": "md",
+                                        "flex": 2
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": results_link,
                                         "wrap": true,
                                         "color": "#666666",
                                         "size": "md",
