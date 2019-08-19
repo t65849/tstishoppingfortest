@@ -93,6 +93,32 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                     "type": "flex",
                     "altText": "e同購特價商品",
                     "contents": {
+                        "type": "bubble",
+                        "body": {
+                          "type": "box",
+                          "layout": "vertical",
+                          "contents": [
+                            {
+                              "type": "text",
+                              "text": "hello"
+                            },
+                            {
+                              "type": "text",
+                              "text": "world"
+                            }
+                          ]
+                        }
+                      }
+                }
+            ]
+        };
+        /*var data = {
+            'to': userId,
+            'messages': [
+                {
+                    "type": "flex",
+                    "altText": "e同購特價商品",
+                    "contents": {
                         "type": "carousel",
                         "contents": [
                           {
@@ -586,7 +612,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                       }
                 }
             ]
-        };
+        };*/
         ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
             if (ret) {
                 this.callback(true);
