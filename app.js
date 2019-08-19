@@ -61,15 +61,18 @@ app.post('/messages', function (request, response) {
             var search_name = text.search_name;
             var owner = text.owner;
             var app = text.app;
-            var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "app:"+app;
-            SendMessage(acct, messages, 'tstiisacompanyfortatung', reply_token, function (ret) {
+            //var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "app:"+app;
+            /*SendMessage(acct, messages, 'tstiisacompanyfortatung', reply_token, function (ret) {
                 if(ret == false){
                     SendMessage("R230fdb328b23308c554983ab07a4543f", messages, 'tstiisacompanyfortatung', "reply_token", function (ret) {
                     });
                     SendMessage("R230fdb328b23308c554983ab07a4543f", "error", 'tstiisacompanyfortatung', "reply_token", function (ret) {
                     });
                 }
-            });
+            });*/
+            SendFlexMessage(acct, sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', reply_token, function (ret) {
+                //
+            })
             //SendMessage("R230fdb328b23308c554983ab07a4543f", messages, 'tstiisacompanyfortatung', "reply_token", function (ret) {
                 /*if(ret){
                     response.send({ "success": "success" });
@@ -80,6 +83,230 @@ app.post('/messages', function (request, response) {
         }
     }
 });
+
+function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_name, owner, app, password, reply_token, callback) {
+    if (password == 'tstiisacompanyfortatung') {
+        var data = {
+            'to': userId,
+            'messages': [
+                {
+                    "type": "flex",
+                    "altText": "this is a flex message",
+                    "contents":
+                    {
+                        "type": "bubble",
+                        "body": {
+                          "type": "box",
+                          "layout": "vertical",
+                          "contents": [
+                            {
+                              "type": "text",
+                              "text": "Splunk訊息",
+                              "weight": "bold",
+                              "size": "xl"
+                            },
+                            {
+                              "type": "box",
+                              "layout": "vertical",
+                              "margin": "lg",
+                              "spacing": "sm",
+                              "contents": [
+                                {
+                                  "type": "box",
+                                  "layout": "baseline",
+                                  "spacing": "sm",
+                                  "contents": [
+                                    {
+                                      "type": "text",
+                                      "text": "sourcetype:",
+                                      "align": "center",
+                                      "color": "#aaaaaa",
+                                      "size": "md",
+                                      "flex": 2
+                                    },
+                                    {
+                                      "type": "text",
+                                      "text": sourcetype,
+                                      "wrap": true,
+                                      "color": "#666666",
+                                      "size": "md",
+                                      "flex": 4
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "baseline",
+                                  "spacing": "sm",
+                                  "contents": [
+                                    {
+                                      "type": "text",
+                                      "text": "count:",
+                                      "align": "center",
+                                      "color": "#aaaaaa",
+                                      "size": "md",
+                                      "flex": 2
+                                    },
+                                    {
+                                      "type": "text",
+                                      "text": count,
+                                      "wrap": true,
+                                      "color": "#666666",
+                                      "size": "md",
+                                      "flex": 4
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "baseline",
+                                  "spacing": "sm",
+                                  "contents": [
+                                    {
+                                      "type": "text",
+                                      "text": "sid:",
+                                      "align": "center",
+                                      "color": "#aaaaaa",
+                                      "size": "md",
+                                      "flex": 2
+                                    },
+                                    {
+                                      "type": "text",
+                                      "text": sid,
+                                      "wrap": true,
+                                      "color": "#666666",
+                                      "size": "md",
+                                      "flex": 4
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "baseline",
+                                  "spacing": "sm",
+                                  "contents": [
+                                    {
+                                      "type": "text",
+                                      "text": "results_link:",
+                                      "align": "center",
+                                      "color": "#aaaaaa",
+                                      "size": "md",
+                                      "flex": 2
+                                    },
+                                    {
+                                      "type": "text",
+                                      "text": results_link,
+                                      "wrap": true,
+                                      "color": "#666666",
+                                      "size": "md",
+                                      "action":{
+                                        "type":"uri",
+                                        "uri": results_link
+                                      },
+                                      "flex": 4
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "baseline",
+                                  "spacing": "sm",
+                                  "contents": [
+                                    {
+                                      "type": "text",
+                                      "text": "search_name:",
+                                      "align": "center",
+                                      "color": "#aaaaaa",
+                                      "size": "md",
+                                      "flex": 2
+                                    },
+                                    {
+                                      "type": "text",
+                                      "text": search_name,
+                                      "wrap": true,
+                                      "color": "#666666",
+                                      "size": "md",
+                                      "flex": 4
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "baseline",
+                                  "spacing": "sm",
+                                  "contents": [
+                                    {
+                                      "type": "text",
+                                      "text": "owner:",
+                                      "align": "center",
+                                      "color": "#aaaaaa",
+                                      "size": "md",
+                                      "flex": 2
+                                    },
+                                    {
+                                      "type": "text",
+                                      "text": owner,
+                                      "wrap": true,
+                                      "color": "#666666",
+                                      "size": "md",
+                                      "flex": 4
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "baseline",
+                                  "spacing": "sm",
+                                  "contents": [
+                                    {
+                                      "type": "text",
+                                      "text": "app:",
+                                      "align": "center",
+                                      "color": "#aaaaaa",
+                                      "size": "md",
+                                      "flex": 2
+                                    },
+                                    {
+                                      "type": "text",
+                                      "text": app,
+                                      "wrap": true,
+                                      "color": "#666666",
+                                      "size": "md",
+                                      "flex": 4
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "footer": {
+                          "type": "box",
+                          "layout": "vertical",
+                          "spacing": "sm",
+                          "contents": [
+                            {
+                              "type": "spacer",
+                              "size": "sm"
+                            }
+                          ],
+                          "flex": 0
+                        }
+                      }
+                }
+            ]
+        }
+        ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
+            if (ret) {
+                this.callback(true);
+            } else {
+                PostToLINE(data, config.channel_access_token, this.callback);
+            }
+        }.bind({ callback: callback }));
+    } else {
+        callback(false);
+    }
+}
 
 app.post('/api/alert_action', function (request, response) {
     console.log('POST /api/alert_action');
