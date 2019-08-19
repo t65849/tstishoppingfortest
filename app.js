@@ -89,7 +89,28 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
         var data = {
             'to': userId,
             'messages': [
-                {
+                {  
+                    "type": "flex",
+                    "altText": "this is a flex message",
+                    "contents": {
+                      "type": "bubble",
+                      "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "hello"
+                          },
+                          {
+                            "type": "text",
+                            "text": "world"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                /*{
                     "type": "flex",
                     "altText": "this is a flex message",
                     "contents":
@@ -280,7 +301,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                               ]
                             }
                           ]
-                        }/*,
+                        },
                         "footer": {
                           "type": "box",
                           "layout": "vertical",
@@ -292,9 +313,9 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                             }
                           ],
                           "flex": 0
-                        }*/
+                        }
                       }
-                }
+                }*/
             ]
         }
         ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
