@@ -230,7 +230,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                       },
                                       {
                                         "type": "text",
-                                        "text": "search_name",
+                                        "text": search_name,
                                         "wrap": true,
                                         "color": "#666666",
                                         "size": "md",
