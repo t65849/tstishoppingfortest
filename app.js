@@ -57,7 +57,7 @@ app.post('/messages', function (request, response) {
             var sourcetype = text.result.sourcetype;
             sourcetype = sourcetype.toString();
             var count = text.result.count;
-            count = String(count);
+            count = count.toString();
             var sid = text.sid;
             var results_link = text.results_link;
             var search_name = text.search_name;
