@@ -156,7 +156,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                       "flex": 4
                                     }
                                   ]
-                                },
+                                }/*,
                                 {
                                   "type": "box",
                                   "layout": "baseline",
@@ -179,7 +179,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                       "flex": 4
                                     }
                                   ]
-                                }/*,
+                                },
                                 {
                                   "type": "box",
                                   "layout": "baseline",
