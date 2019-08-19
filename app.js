@@ -217,7 +217,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                             "uri": results_link
                                         },
                                         "wrap": true,
-                                        "color": "#666666",
+                                        "color": "#0000ff",
                                         "size": "md",
                                         "flex": 3
                                       }
