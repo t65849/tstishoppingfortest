@@ -70,7 +70,7 @@ app.post('/messages', function (request, response) {
                     });
                 }
             });*/
-            SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', reply_token, function (ret) {
+            SendFlexMessage(acct, sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', reply_token, function (ret) {
                 //
             })
             //SendMessage("R230fdb328b23308c554983ab07a4543f", messages, 'tstiisacompanyfortatung', "reply_token", function (ret) {
@@ -89,7 +89,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
         var data = {
             'to': userId,
             'messages': [
-                {  
+                /*{  
                     "type": "flex",
                     "altText": "this is a flex message",
                     "contents": {
@@ -109,18 +109,13 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                         ]
                       }
                     }
-                  }
-                /*{
+                }*/
+                {
                     "type": "flex",
                     "altText": "this is a flex message",
                     "contents":
                     {
                         "type": "bubble",
-                        "styles": {
-                            "footer": {
-                                "separator": true
-                            }
-                        },
                         "body": {
                           "type": "box",
                           "layout": "vertical",
@@ -315,7 +310,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                           "flex": 0
                         }
                       }
-                }*/
+                }
             ]
         }
         ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
