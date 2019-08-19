@@ -89,27 +89,6 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
         var data = {
             'to': userId,
             'messages': [
-                /*{  
-                    "type": "flex",
-                    "altText": "this is a flex message",
-                    "contents": {
-                      "type": "bubble",
-                      "body": {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                          {
-                            "type": "text",
-                            "text": "hello"
-                          },
-                          {
-                            "type": "text",
-                            "text": "world"
-                          }
-                        ]
-                      }
-                    }
-                }*/
                 {
                     "type": "flex",
                     "altText": "this is a flex message",
@@ -125,7 +104,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                               "text": "Splunk訊息",
                               "weight": "bold",
                               "size": "xl"
-                            },
+                            }/*,
                             {
                               "type": "box",
                               "layout": "vertical",
@@ -294,7 +273,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                   ]
                                 }
                               ]
-                            }
+                            }*/
                           ]
                         },
                         "footer": {
