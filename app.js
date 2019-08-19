@@ -585,9 +585,10 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                           }
                         ]
                       }
+
                 }
             }]
-        }
+        };
         ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
             if (ret) {
                 this.callback(true);
