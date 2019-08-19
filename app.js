@@ -55,7 +55,9 @@ app.post('/messages', function (request, response) {
             var text = results[idx].message.text;
             text = JSON.parse(text);
             var sourcetype = text.result.sourcetype;
+            sourcetype = sourcetype.toString();
             var count = text.result.count;
+            count = count.toString();
             var sid = text.sid;
             var results_link = text.results_link;
             var search_name = text.search_name;
@@ -148,7 +150,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                     },
                                     {
                                       "type": "text",
-                                      "text": "count",
+                                      "text": count,
                                       "wrap": true,
                                       "color": "#666666",
                                       "size": "md",
