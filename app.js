@@ -95,6 +95,11 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                     "contents":
                     {
                         "type": "bubble",
+                        "styles": {
+                            "footer": {
+                                "separator": true
+                            }
+                        },
                         "body": {
                           "type": "box",
                           "layout": "vertical",
@@ -275,7 +280,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                               ]
                             }
                           ]
-                        },
+                        }/*,
                         "footer": {
                           "type": "box",
                           "layout": "vertical",
@@ -287,7 +292,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                             }
                           ],
                           "flex": 0
-                        }
+                        }*/
                       }
                 }
             ]
