@@ -212,6 +212,10 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                       {
                                         "type": "text",
                                         "text": results_link,
+                                        "action": {
+                                            "type":  "uri",
+                                            "uri": results_link
+                                        },
                                         "wrap": true,
                                         "color": "#666666",
                                         "size": "md",
