@@ -131,7 +131,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                       "flex": 5
                                     }
                                   ]
-                                },
+                                }, //1
                                 {
                                   "type": "box",
                                   "layout": "baseline",
@@ -153,15 +153,44 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                       "flex": 5
                                     }
                                   ]
-                                },
-                                {
+                                } //2
+                              ]
+                            },{
+                                "type": "box",
+                                "layout": "vertical",
+                                "margin": "lg",
+                                "spacing": "sm",
+                                "contents": [
+                                  {
                                     "type": "box",
                                     "layout": "baseline",
                                     "spacing": "sm",
                                     "contents": [
                                       {
                                         "type": "text",
-                                        "text": "sid",
+                                        "text": "Place",
+                                        "color": "#aaaaaa",
+                                        "size": "sm",
+                                        "flex": 1
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+                                        "wrap": true,
+                                        "color": "#666666",
+                                        "size": "sm",
+                                        "flex": 5
+                                      }
+                                    ]
+                                  }, //1
+                                  {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "spacing": "sm",
+                                    "contents": [
+                                      {
+                                        "type": "text",
+                                        "text": "Time",
                                         "color": "#aaaaaa",
                                         "size": "sm",
                                         "flex": 1
@@ -171,13 +200,13 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                         "text": "10:00 - 23:00",
                                         "wrap": true,
                                         "color": "#666666",
-                                        "size": "wwssjfjdimfiodo",
+                                        "size": "sm",
                                         "flex": 5
                                       }
                                     ]
-                                  }
-                              ]
-                            }
+                                  } //2
+                                ]
+                              }
                           ]
                         }
                       }
