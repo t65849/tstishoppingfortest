@@ -135,143 +135,28 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                   ]
                                 },
                                 {
-                                  "type": "box",
-                                  "layout": "baseline",
-                                  "spacing": "sm",
-                                  "contents": [
-                                    {
-                                      "type": "text",
-                                      "text": "count:",
-                                      "align": "center",
-                                      "color": "#aaaaaa",
-                                      "size": "md",
-                                      "flex": 2
-                                    },
-                                    {
-                                      "type": "text",
-                                      "text": count,
-                                      "wrap": true,
-                                      "color": "#666666",
-                                      "size": "md",
-                                      "flex": 4
-                                    }
-                                  ]
-                                }/*,
-                                {
-                                  "type": "box",
-                                  "layout": "baseline",
-                                  "spacing": "sm",
-                                  "contents": [
-                                    {
-                                      "type": "text",
-                                      "text": "sid:",
-                                      "align": "center",
-                                      "color": "#aaaaaa",
-                                      "size": "md",
-                                      "flex": 2
-                                    },
-                                    {
-                                      "type": "text",
-                                      "text": sid,
-                                      "wrap": true,
-                                      "color": "#666666",
-                                      "size": "md",
-                                      "flex": 4
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "box",
-                                  "layout": "baseline",
-                                  "spacing": "sm",
-                                  "contents": [
-                                    {
-                                      "type": "text",
-                                      "text": "results_link:",
-                                      "align": "center",
-                                      "color": "#aaaaaa",
-                                      "size": "md",
-                                      "flex": 2
-                                    },
-                                    {
-                                      "type": "text",
-                                      "text": results_link,
-                                      "wrap": true,
-                                      "color": "#666666",
-                                      "size": "md",
-                                      "flex": 4
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "box",
-                                  "layout": "baseline",
-                                  "spacing": "sm",
-                                  "contents": [
-                                    {
-                                      "type": "text",
-                                      "text": "search_name:",
-                                      "align": "center",
-                                      "color": "#aaaaaa",
-                                      "size": "md",
-                                      "flex": 2
-                                    },
-                                    {
-                                      "type": "text",
-                                      "text": search_name,
-                                      "wrap": true,
-                                      "color": "#666666",
-                                      "size": "md",
-                                      "flex": 4
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "box",
-                                  "layout": "baseline",
-                                  "spacing": "sm",
-                                  "contents": [
-                                    {
-                                      "type": "text",
-                                      "text": "owner:",
-                                      "align": "center",
-                                      "color": "#aaaaaa",
-                                      "size": "md",
-                                      "flex": 2
-                                    },
-                                    {
-                                      "type": "text",
-                                      "text": owner,
-                                      "wrap": true,
-                                      "color": "#666666",
-                                      "size": "md",
-                                      "flex": 4
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "box",
-                                  "layout": "baseline",
-                                  "spacing": "sm",
-                                  "contents": [
-                                    {
-                                      "type": "text",
-                                      "text": "app:",
-                                      "align": "center",
-                                      "color": "#aaaaaa",
-                                      "size": "md",
-                                      "flex": 2
-                                    },
-                                    {
-                                      "type": "text",
-                                      "text": app,
-                                      "wrap": true,
-                                      "color": "#666666",
-                                      "size": "md",
-                                      "flex": 4
-                                    }
-                                  ]
-                                }*/
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "spacing": "sm",
+                                    "contents": [
+                                      {
+                                        "type": "text",
+                                        "text": "sourcetype:",
+                                        "align": "center",
+                                        "color": "#aaaaaa",
+                                        "size": "md",
+                                        "flex": 2
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": count,
+                                        "wrap": true,
+                                        "color": "#666666",
+                                        "size": "md",
+                                        "flex": 4
+                                      }
+                                    ]
+                                  }
                               ]
                             }
                           ]
