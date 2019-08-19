@@ -153,7 +153,29 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                       "flex": 5
                                     }
                                   ]
-                                }
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "spacing": "sm",
+                                    "contents": [
+                                      {
+                                        "type": "text",
+                                        "text": "sid",
+                                        "color": "#aaaaaa",
+                                        "size": "sm",
+                                        "flex": 1
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "10:00 - 23:00",
+                                        "wrap": true,
+                                        "color": "#666666",
+                                        "size": "wwssjfjdimfiodo",
+                                        "flex": 5
+                                      }
+                                    ]
+                                  }
                               ]
                             }
                           ]
