@@ -97,81 +97,22 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                         "type": "bubble",
                         "body": {
                           "type": "box",
-                          "layout": "vertical",
+                          "layout": "horizontal",
+                          "spacing": "md",
                           "contents": [
                             {
-                              "type": "text",
-                              "text": "Splunk訊息",
-                              "weight": "bold",
-                              "size": "xl"
+                              "type": "image",
+                              "url": "https://secure.img2-fg.wfcdn.com/im/55930833/compr-r85/3709/37096064/sitting-lion-cub-statue.jpg"
                             },
                             {
-                              "type": "box",
-                              "layout": "vertical",
-                              "margin": "lg",
-                              "spacing": "sm",
-                              "contents": [
-                                {
-                                  "type": "box",
-                                  "layout": "baseline",
-                                  "spacing": "sm",
-                                  "contents": [
-                                    {
-                                      "type": "text",
-                                      "text": "sourcetype:",
-                                      "align": "center",
-                                      "color": "#aaaaaa",
-                                      "size": "md",
-                                      "flex": 2
-                                    },
-                                    {
-                                      "type": "text",
-                                      "text": sourcetype,
-                                      "wrap": true,
-                                      "color": "#666666",
-                                      "size": "md",
-                                      "flex": 4
-                                    }
-                                  ]
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "spacing": "sm",
-                                    "contents": [
-                                      {
-                                        "type": "text",
-                                        "text": "sourcetype:",
-                                        "align": "center",
-                                        "color": "#aaaaaa",
-                                        "size": "md",
-                                        "flex": 2
-                                      },
-                                      {
-                                        "type": "text",
-                                        "text": count,
-                                        "wrap": true,
-                                        "color": "#666666",
-                                        "size": "md",
-                                        "flex": 4
-                                      }
-                                    ]
-                                  }
-                              ]
+                              "type": "image",
+                              "url": "https://secure.img2-fg.wfcdn.com/im/55930833/compr-r85/3709/37096064/sitting-lion-cub-statue.jpg"
+                            },
+                            {
+                              "type": "image",
+                              "url": "https://secure.img2-fg.wfcdn.com/im/55930833/compr-r85/3709/37096064/sitting-lion-cub-statue.jpg"
                             }
                           ]
-                        },
-                        "footer": {
-                          "type": "box",
-                          "layout": "vertical",
-                          "spacing": "sm",
-                          "contents": [
-                            {
-                              "type": "spacer",
-                              "size": "sm"
-                            }
-                          ],
-                          "flex": 0
                         }
                       }
                 }
