@@ -91,7 +91,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
             'messages': [
                 {
                     "type": "flex",
-                    "altText": "e同購特價商品",
+                    "altText": "Splunk",
                     "contents": {
                         "type": "bubble",
                         "body": {
@@ -100,7 +100,7 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                           "contents": [
                             {
                               "type": "text",
-                              "text": "Brown Cafe",
+                              "text": "Splunk訊息",
                               "weight": "bold",
                               "size": "xl"
                             },
@@ -117,21 +117,22 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                   "contents": [
                                     {
                                       "type": "text",
-                                      "text": "Place",
+                                      "text": "sourcetype:",
+                                      "align": "center",
                                       "color": "#aaaaaa",
-                                      "size": "sm",
-                                      "flex": 1
+                                      "size": "md",
+                                      "flex": 2
                                     },
                                     {
                                       "type": "text",
-                                      "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+                                      "text": "sourcetype",
                                       "wrap": true,
                                       "color": "#666666",
-                                      "size": "sm",
-                                      "flex": 5
+                                      "size": "md",
+                                      "flex": 3
                                     }
                                   ]
-                                }, //1
+                                },
                                 {
                                   "type": "box",
                                   "layout": "baseline",
@@ -139,21 +140,22 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                   "contents": [
                                     {
                                       "type": "text",
-                                      "text": "Time",
+                                      "text": "count:",
+                                      "align": "center",
                                       "color": "#aaaaaa",
-                                      "size": "sm",
-                                      "flex": 1
+                                      "size": "md",
+                                      "flex": 2
                                     },
                                     {
                                       "type": "text",
-                                      "text": "10:00 - 23:00",
+                                      "text": "count",
                                       "wrap": true,
                                       "color": "#666666",
-                                      "size": "sm",
-                                      "flex": 5
+                                      "size": "md",
+                                      "flex": 3
                                     }
                                   ]
-                                } //2
+                                }
                               ]
                             },{
                                 "type": "box",
@@ -168,21 +170,22 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                     "contents": [
                                       {
                                         "type": "text",
-                                        "text": "Place",
+                                        "text": "sid:",
+                                        "align": "center",
                                         "color": "#aaaaaa",
-                                        "size": "sm",
-                                        "flex": 1
+                                        "size": "md",
+                                        "flex": 2
                                       },
                                       {
                                         "type": "text",
-                                        "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+                                        "text": "sid",
                                         "wrap": true,
                                         "color": "#666666",
-                                        "size": "sm",
-                                        "flex": 5
+                                        "size": "md",
+                                        "flex": 3
                                       }
                                     ]
-                                  }, //1
+                                  },
                                   {
                                     "type": "box",
                                     "layout": "baseline",
@@ -190,21 +193,75 @@ function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_na
                                     "contents": [
                                       {
                                         "type": "text",
-                                        "text": "Time",
+                                        "text": "search_name:",
+                                        "align": "center",
                                         "color": "#aaaaaa",
-                                        "size": "sm",
-                                        "flex": 1
+                                        "size": "md",
+                                        "flex": 2
                                       },
                                       {
                                         "type": "text",
-                                        "text": "10:00 - 23:00",
+                                        "text": "search_name",
                                         "wrap": true,
                                         "color": "#666666",
-                                        "size": "sm",
-                                        "flex": 5
+                                        "size": "md",
+                                        "flex": 3
                                       }
                                     ]
-                                  } //2
+                                  }
+                                ]
+                              },{
+                                "type": "box",
+                                "layout": "vertical",
+                                "margin": "lg",
+                                "spacing": "sm",
+                                "contents": [
+                                  {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "spacing": "sm",
+                                    "contents": [
+                                      {
+                                        "type": "text",
+                                        "text": "owner:",
+                                        "align": "center",
+                                        "color": "#aaaaaa",
+                                        "size": "md",
+                                        "flex": 2
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "owner",
+                                        "wrap": true,
+                                        "color": "#666666",
+                                        "size": "md",
+                                        "flex": 3
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "spacing": "sm",
+                                    "contents": [
+                                      {
+                                        "type": "text",
+                                        "text": "app:",
+                                        "align": "center",
+                                        "color": "#aaaaaa",
+                                        "size": "md",
+                                        "flex": 2
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "app",
+                                        "wrap": true,
+                                        "color": "#666666",
+                                        "size": "md",
+                                        "flex": 3
+                                      }
+                                    ]
+                                  }
                                 ]
                               }
                           ]
