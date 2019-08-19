@@ -63,6 +63,9 @@ app.post('/messages', function (request, response) {
             var results_link = text.results_link;
             results_link = results_link.toString();
             var search_name = text.search_name;
+            if(search_name == null){
+                search_name = "null";
+            }
             search_name = search_name.toString();
             var owner = text.owner;
             owner = owner.toString();
