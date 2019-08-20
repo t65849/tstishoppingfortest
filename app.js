@@ -91,10 +91,10 @@ app.post('/messages', function (request, response) {
             owner = owner.toString();
             var app = bodys.app;
             app = app.toString();
-            SendFlexMessage("R230fdb328b23308c554983ab07a4543f", sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', reply_token, function (ret) {
+            SendFlexMessage("R230fdb328b23308c554983ab07a4543f", sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', null, function (ret) {
               //
           });
-          SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', reply_token, function (ret) {
+          SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', null, function (ret) {
             //
         });
             //var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "app:"+app;
