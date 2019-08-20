@@ -77,6 +77,7 @@ app.post('/messages', function (request, response) {
   result_message = JSON.stringify(result);
   console.log(Object.keys(result));
   console.log(Object.keys(result).length);
+  console.log(Object.keys(result)[0]);
   var sourcetype = bodys.result.sourcetype;
   //sourcetype = sourcetype.toString();
   var count = bodys.result.count;
