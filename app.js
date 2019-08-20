@@ -137,6 +137,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
   if (password == 'tstiisacompanyfortatung') {
     var flex_content = new Array();
     var result_keys = Object.keys(result);
+    var result_values = Object.values(result);
     for(var i = 0; result_keys.length; i++){
       var result_entries = Object.entries(result);
       var result_data = {
@@ -146,7 +147,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
         "contents": [
           {
             "type": "text",
-            "text": result_entries[i].keys+"：",
+            "text": result_keys[i]+"：",
             "align": "center",
             "color": "#aaaaaa",
             "size": "md",
@@ -154,7 +155,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
           },
           {
             "type": "text",
-            "text": result_entries[i].values,
+            "text": result_values[i],
             "wrap": true,
             "color": "#666666",
             "size": "md",
