@@ -94,8 +94,6 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
       };
       flex_content.push(result_data);
     }
-    console.log("103");
-    console.log(JSON.stringify(flex_content));
     var data = {
       'to': userId,
       'messages': [
@@ -128,13 +126,13 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
       ]
     };
     //
-    /*ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
+    ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
       if (ret) {
         this.callback(true);
       } else {
         PostToLINE(data, config.channel_access_token, this.callback);
       }
-    }.bind({ callback: callback }));*/
+    }.bind({ callback: callback }));
   } else {
     callback(false);
   }
