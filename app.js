@@ -60,6 +60,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
     var result_values = Object.values(result);
     console.log(JSON.stringify(result_values));
     var result_entries = Object.entries(result);
+    console.log(JSON.stringify(result_entries));
     for(var i =0; i < result_entries.length; i++){
       if(result_keys[i].indexOf("time") != -1 || result_keys[i].indexOf("Time") != -1 || result_keys[i].indexOf("TIME") != -1){
         var tmp = result_entries[0];
@@ -73,6 +74,10 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
     var result_values = Object.values(result_entries);
     console.log(JSON.stringify(result_values));
     for(var i = 0; i < result_entries.length; i++){
+      var keyss = result_entries[i][0];
+      console.log(JSON.stringify(keyss));
+      var valuess = result_entries[i][1];
+      console.log(JSON.stringify(valuess));
       var result_data = {
         "type": "box",
         "layout": "baseline",
@@ -98,8 +103,8 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
       };
       flex_content.push(result_data);
     }
-    console.log("103");
-    console.log(JSON.stringify(flex_content));
+    //console.log("103");
+    //console.log(JSON.stringify(flex_content));
     var data = {
       'to': userId,
       'messages': [
