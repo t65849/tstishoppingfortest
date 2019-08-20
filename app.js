@@ -151,7 +151,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
           {
             "type": "text",
             "text": result_keys[i]+"：",
-            "align": "center",
+            "align": "end",
             "color": "#aaaaaa",
             "size": "md",
             "flex": 2
@@ -170,29 +170,6 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
     }
     console.log("167");
     console.log(JSON.stringify(flex_content));
-    var result_data = {
-      "type": "box",
-      "layout": "baseline",
-      "spacing": "sm",
-      "contents": [
-        {
-          "type": "text",
-          "text": "count:",
-          "align": "center",
-          "color": "#aaaaaa",
-          "size": "md",
-          "flex": 2
-        },
-        {
-          "type": "text",
-          "text": 'count',
-          "wrap": true,
-          "color": "#666666",
-          "size": "md",
-          "flex": 3
-        }
-      ]
-    };
     var data = {
       'to': userId,
       'messages': [
@@ -207,7 +184,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
               "contents": [
                 {
                   "type": "text",
-                  "text": "Splunk訊息",
+                  "text": "告警訊息",
                   "weight": "bold",
                   "size": "xl"
                 },
@@ -216,54 +193,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
                   "layout": "vertical",
                   "margin": "lg",
                   "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "sourcetype:",
-                          "align": "center",
-                          "color": "#aaaaaa",
-                          "size": "md",
-                          "flex": 2
-                        },
-                        {
-                          "type": "text",
-                          "text": "sourcetype",
-                          "wrap": true,
-                          "color": "#666666",
-                          "size": "md",
-                          "flex": 3
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "count:",
-                          "align": "center",
-                          "color": "#aaaaaa",
-                          "size": "md",
-                          "flex": 2
-                        },
-                        {
-                          "type": "text",
-                          "text": "count",
-                          "wrap": true,
-                          "color": "#666666",
-                          "size": "md",
-                          "flex": 3
-                        }
-                      ]
-                    }
-                  ]
+                  "contents": flex_content
                 }
               ]
             }
@@ -272,13 +202,13 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
       ]
     };
     //
-    /*ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
+    ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
       if (ret) {
         this.callback(true);
       } else {
         PostToLINE(data, config.channel_access_token, this.callback);
       }
-    }.bind({ callback: callback }));*/
+    }.bind({ callback: callback }));
   } else {
     callback(false);
   }
