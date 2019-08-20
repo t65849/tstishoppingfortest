@@ -141,7 +141,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
     console.log(JSON.stringify(result_keys));
     var result_values = Object.values(result);
     console.log(JSON.stringify(result_values));
-    for(var i = 0; result_keys.length; i++){
+    for(var i = 0; i < result_keys.length; i++){
       var result_entries = Object.entries(result);
       var result_data = {
         "type": "box",
@@ -150,7 +150,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
         "contents": [
           {
             "type": "text",
-            "text": result_keys[i]+"：",
+            "text": result_entries[i].keys+"：",
             "align": "center",
             "color": "#aaaaaa",
             "size": "md",
@@ -158,7 +158,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
           },
           {
             "type": "text",
-            "text": result_values[i],
+            "text": result_entries[i].values,
             "wrap": true,
             "color": "#666666",
             "size": "md",
