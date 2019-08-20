@@ -41,106 +41,22 @@ app.post('/messages', function (request, response) {
   response.send('');
   logger.info(request.body);
   logger.info(JSON.stringify(request.body));
-  /*var results = request.body.events;
-  logger.info(JSON.stringify(results));
-  logger.info('receive message count: ' + results.length);
-  for (var idx = 0; idx < results.length; idx++) {
-      var acct = results[idx].source.userId;
-      var reply_token = results[idx].replyToken;
-      logger.info('userId: ' + acct);
-      logger.info('reply token: ' + results[idx].replyToken);
-      logger.info('createdTime: ' + results[idx].timestamp);
-      logger.info('from: ' + results[idx].source.userId);
-      logger.info('type: ' + results[idx].type);
-      if (results[idx].type == 'message') {
-          var text = results[idx].message.text;
-          text = JSON.parse(text);
-          var sourcetype = text.result.sourcetype;
-          sourcetype = sourcetype.toString();
-          var count = text.result.count;
-          count = count.toString();
-          var sid = text.sid;
-          sid = sid.toString();
-          var results_link = text.results_link;
-          results_link = results_link.toString();
-          var search_name = text.search_name;
-          if(search_name == null){
-              search_name = "null";
-          }
-          search_name = search_name.toString();
-          var owner = text.owner;
-          owner = owner.toString();
-          var app = text.app;
-          app = app.toString();*/
   var bodys = request.body;
-  var result = bodys.result;
-  result_message = JSON.stringify(result);
-  console.log(Object.entries(result));
-  console.log(Object.entries(result).length);
-  console.log(Object.entries(result)[0]);
-  var sourcetype = bodys.result.sourcetype;
-  //sourcetype = sourcetype.toString();
-  var count = bodys.result.count;
-  //count = count.toString();
-  var sid = bodys.sid;
-  //sid = sid.toString();
-  var results_link = bodys.results_link;
-  //results_link = results_link.toString();
-  var search_name = bodys.search_name;
-  if (search_name == null) {
-    search_name = "null";
-  }
-  //search_name = search_name.toString();
-  var owner = bodys.owner;
-  //owner = owner.toString();
-  var app = bodys.app;
-  //app = app.toString();
-  /*SendFlexMessage("R230fdb328b23308c554983ab07a4543f", sourcetype, count, sid, results_link, search_name, owner, app, 'tstiisacompanyfortatung', null, function (ret) {
-    //
-  });
-  SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", sourcetype, count, sid, results_link, search_name, owner, app, 'tstiisacompanyfortatung', null, function (ret) {
-    //
-  });*/
-  /*SendMessage("R230fdb328b23308c554983ab07a4543f", result, 'tstiisacompanyfortatung', null, function (ret) {
-  });*/
-  if(result.testa){
+  if(bodys.result !== undefined){
+    var result = bodys.result;
+    //R230fdb328b23308c554983ab07a4543f
     SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", result, 'tstiisacompanyfortatung', null, function (ret) {
     });
   } else {
-    SendMessage("C3febbf29c0f0bd33601da24998fde2da", result_message, 'tstiisacompanyfortatung', null, function (ret) {
-    });
+    console.log("Conversation");
   }
-  //var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "app:"+app;
-  /*SendMessage(acct, messages, 'tstiisacompanyfortatung', reply_token, function (ret) {
-      if(ret == false){
-          SendMessage("R230fdb328b23308c554983ab07a4543f", messages, 'tstiisacompanyfortatung', "reply_token", function (ret) {
-          });
-          SendMessage("R230fdb328b23308c554983ab07a4543f", "error", 'tstiisacompanyfortatung', "reply_token", function (ret) {
-          });
-      }
-  });*/
-  /*SendFlexMessage(acct, sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', reply_token, function (ret) {
-      //
-  })*/
-  //SendMessage("R230fdb328b23308c554983ab07a4543f", messages, 'tstiisacompanyfortatung', "reply_token", function (ret) {
-  /*if(ret){
-      response.send({ "success": "success" });
-  } else {
-      response.send({ "error": "error" });
-  }*/
-  //});
-  //}
-  //}
 });
 
 function SendFlexMessage(userId, result, password, reply_token, callback) {
   if (password == 'tstiisacompanyfortatung') {
     var flex_content = new Array();
-    console.log(JSON.stringify(result));
     var result_keys = Object.keys(result);
-    console.log(JSON.stringify(result_keys));
     var result_values = Object.values(result);
-    console.log(JSON.stringify(result_values));
     for(var i = 0; i < result_keys.length; i++){
       var result_entries = Object.entries(result);
       var result_data = {
@@ -168,14 +84,12 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
       };
       flex_content.push(result_data);
     }
-    console.log("167");
-    console.log(JSON.stringify(flex_content));
     var data = {
       'to': userId,
       'messages': [
         {
           "type": "flex",
-          "altText": "Splunk",
+          "altText": "告警訊息",
           "contents": {
             "type": "bubble",
             "body": {
