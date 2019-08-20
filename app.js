@@ -38,11 +38,11 @@ app.get('/logs', function (request, response) {
 });
 
 app.post('/messages', function (request, response) {
-    /*response.send('');
+    response.send('');
     logger.info(request.body);
     var results = request.body.events;
     logger.info(JSON.stringify(results));
-    logger.info('receive message count: ' + results.length);
+    /*logger.info('receive message count: ' + results.length);
     for (var idx = 0; idx < results.length; idx++) {
         var acct = results[idx].source.userId;
         var reply_token = results[idx].replyToken;
