@@ -136,8 +136,11 @@ app.post('/messages', function (request, response) {
 function SendFlexMessage(userId, result, password, reply_token, callback) {
   if (password == 'tstiisacompanyfortatung') {
     var flex_content = new Array();
+    console.log(JSON.stringify(result));
     var result_keys = Object.keys(result);
+    console.log(JSON.stringify(result_keys));
     var result_values = Object.values(result);
+    console.log(JSON.stringify(result_values));
     for(var i = 0; result_keys.length; i++){
       var result_entries = Object.entries(result);
       var result_data = {
