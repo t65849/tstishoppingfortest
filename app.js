@@ -73,8 +73,30 @@ app.post('/messages', function (request, response) {
             app = app.toString();*/
             console.log("74");
             console.log(request.body);
-            console.log(typeof(request.body));
-            //C3febbf29c0f0bd33601da24998fde2da
+            var bodys = request.body;
+            var sourcetype = bodys.result.sourcetype;
+            sourcetype = sourcetype.toString();
+            var count = bodys.result.count;
+            count = count.toString();
+            var sid = bodys.sid;
+            sid = sid.toString();
+            var results_link = bodys.results_link;
+            results_link = results_link.toString();
+            var search_name = bodys.search_name;
+            if(search_name == null){
+                search_name = "null";
+            }
+            search_name = search_name.toString();
+            var owner = bodys.owner;
+            owner = owner.toString();
+            var app = bodys.app;
+            app = app.toString();
+            SendFlexMessage("R230fdb328b23308c554983ab07a4543f", sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', reply_token, function (ret) {
+              //
+          });
+          SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', reply_token, function (ret) {
+            //
+        });
             //var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "app:"+app;
             /*SendMessage(acct, messages, 'tstiisacompanyfortatung', reply_token, function (ret) {
                 if(ret == false){
@@ -84,9 +106,9 @@ app.post('/messages', function (request, response) {
                     });
                 }
             });*/
-            SendFlexMessage(acct, sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', reply_token, function (ret) {
+            /*SendFlexMessage(acct, sourcetype, count, sid, results_link, search_name, owner, app,'tstiisacompanyfortatung', reply_token, function (ret) {
                 //
-            })
+            })*/
             //SendMessage("R230fdb328b23308c554983ab07a4543f", messages, 'tstiisacompanyfortatung', "reply_token", function (ret) {
                 /*if(ret){
                     response.send({ "success": "success" });
