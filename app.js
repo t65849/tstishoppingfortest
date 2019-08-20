@@ -57,12 +57,9 @@ app.post('/messages', function (request, response) {
       }
     }
     console.log(JSON.stringify(entrie));
-    var copy = Object.assign({}, entrie);
     console.log(typeof(entrie));
-    console.log(typeof(copy));
-    console.log(JSON.stringify(copy));
-    /*SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", result, 'tstiisacompanyfortatung', null, function (ret) {
-    });*/
+    SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", entries, 'tstiisacompanyfortatung', null, function (ret) {
+    });
     //R230fdb328b23308c554983ab07a4543f
   } else {
     console.log("Conversation");
@@ -73,7 +70,9 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
   if (password == 'tstiisacompanyfortatung') {
     var flex_content = new Array();
     var result_keys = Object.keys(result);
+    console.log(JSON.stringify(result_keys));
     var result_values = Object.values(result);
+    console.log(JSON.stringify(result_values));
     for(var i = 0; i < result_keys.length; i++){
       var result_entries = Object.entries(result);
       var result_data = {
@@ -133,13 +132,13 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
       ]
     };
     //
-    ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
+    /*ReplyMessage(data, config.channel_access_token, reply_token, function (ret) {
       if (ret) {
         this.callback(true);
       } else {
         PostToLINE(data, config.channel_access_token, this.callback);
       }
-    }.bind({ callback: callback }));
+    }.bind({ callback: callback }));*/
   } else {
     callback(false);
   }
