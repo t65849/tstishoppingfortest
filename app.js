@@ -100,6 +100,8 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
       };
       flex_content.push(result_data);
     }
+    console.log("103");
+    console.log(JSON.stringify(flex_content));
     var data = {
       'to': userId,
       'messages': [
