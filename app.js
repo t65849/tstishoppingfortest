@@ -74,7 +74,9 @@ app.post('/messages', function (request, response) {
           app = app.toString();*/
   var bodys = request.body;
   var result = bodys.result;
-  result = JSON.stringify(result);
+  result_message = JSON.stringify(result);
+  console.log(result.size);
+  console.log(Object.keys(result));
   var sourcetype = bodys.result.sourcetype;
   //sourcetype = sourcetype.toString();
   var count = bodys.result.count;
@@ -100,8 +102,12 @@ app.post('/messages', function (request, response) {
   });*/
   /*SendMessage("R230fdb328b23308c554983ab07a4543f", result, 'tstiisacompanyfortatung', null, function (ret) {
   });*/
-  SendMessage("C3febbf29c0f0bd33601da24998fde2da", result, 'tstiisacompanyfortatung', null, function (ret) {
-  });
+  if(result.testa){
+    //
+  } else {
+    SendMessage("C3febbf29c0f0bd33601da24998fde2da", result_message, 'tstiisacompanyfortatung', null, function (ret) {
+    });
+  }
   //var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "app:"+app;
   /*SendMessage(acct, messages, 'tstiisacompanyfortatung', reply_token, function (ret) {
       if(ret == false){
