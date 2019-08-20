@@ -73,6 +73,7 @@ app.post('/messages', function (request, response) {
             app = app.toString();*/
             console.log("74");
             console.log(request.body);
+            console.log(typeof(request.body));
             //C3febbf29c0f0bd33601da24998fde2da
             //var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "app:"+app;
             /*SendMessage(acct, messages, 'tstiisacompanyfortatung', reply_token, function (ret) {
@@ -94,7 +95,7 @@ app.post('/messages', function (request, response) {
                 }*/
             //});
         //}
-    }
+    //}
 });
 
 function SendFlexMessage(userId, sourcetype, count, sid, results_link, search_name, owner, app, password, reply_token, callback) {
