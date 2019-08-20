@@ -135,8 +135,60 @@ app.post('/messages', function (request, response) {
 
 function SendFlexMessage(userId, result, password, reply_token, callback) {
   if (password == 'tstiisacompanyfortatung') {
-    console.log(typeof(result));
-    console.log(JSON.stringify(result));
+    var flex_content = new Array();
+    var result_keys = Object.keys(result);
+    for(var i = 0; result_keys.length; i++){
+      var result_entries = Object.entries(result);
+      var result_data = {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": result_entries[i].keys+"：",
+            "align": "center",
+            "color": "#aaaaaa",
+            "size": "md",
+            "flex": 2
+          },
+          {
+            "type": "text",
+            "text": result_entries[i].values,
+            "wrap": true,
+            "color": "#666666",
+            "size": "md",
+            "flex": 3
+          }
+        ]
+      };
+      flex_content.push(result_data);
+    }
+    console.log("167");
+    console.log(JSON.stringify(flex_content));
+    var result_data = {
+      "type": "box",
+      "layout": "baseline",
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "text",
+          "text": "count:",
+          "align": "center",
+          "color": "#aaaaaa",
+          "size": "md",
+          "flex": 2
+        },
+        {
+          "type": "text",
+          "text": 'count',
+          "wrap": true,
+          "color": "#666666",
+          "size": "md",
+          "flex": 3
+        }
+      ]
+    };
     var data = {
       'to': userId,
       'messages': [
@@ -176,7 +228,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
                         },
                         {
                           "type": "text",
-                          "text": sourcetype,
+                          "text": "sourcetype",
                           "wrap": true,
                           "color": "#666666",
                           "size": "md",
@@ -199,140 +251,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
                         },
                         {
                           "type": "text",
-                          "text": count,
-                          "wrap": true,
-                          "color": "#666666",
-                          "size": "md",
-                          "flex": 3
-                        }
-                      ]
-                    }
-                  ]
-                }, {
-                  "type": "box",
-                  "layout": "vertical",
-                  "margin": "lg",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "sid:",
-                          "align": "center",
-                          "color": "#aaaaaa",
-                          "size": "md",
-                          "flex": 2
-                        },
-                        {
-                          "type": "text",
-                          "text": sid,
-                          "wrap": true,
-                          "color": "#666666",
-                          "size": "md",
-                          "flex": 3
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "results_link:",
-                          "align": "center",
-                          "color": "#aaaaaa",
-                          "size": "md",
-                          "flex": 2
-                        },
-                        {
-                          "type": "text",
-                          "text": results_link,
-                          "action": {
-                            "type": "uri",
-                            "uri": results_link
-                          },
-                          "wrap": true,
-                          "color": "#0000ff",
-                          "size": "md",
-                          "flex": 3
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "search_name:",
-                          "align": "center",
-                          "color": "#aaaaaa",
-                          "size": "md",
-                          "flex": 2
-                        },
-                        {
-                          "type": "text",
-                          "text": search_name,
-                          "wrap": true,
-                          "color": "#666666",
-                          "size": "md",
-                          "flex": 3
-                        }
-                      ]
-                    }
-                  ]
-                }, {
-                  "type": "box",
-                  "layout": "vertical",
-                  "margin": "lg",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "owner:",
-                          "align": "center",
-                          "color": "#aaaaaa",
-                          "size": "md",
-                          "flex": 2
-                        },
-                        {
-                          "type": "text",
-                          "text": owner,
-                          "wrap": true,
-                          "color": "#666666",
-                          "size": "md",
-                          "flex": 3
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "app:",
-                          "align": "center",
-                          "color": "#aaaaaa",
-                          "size": "md",
-                          "flex": 2
-                        },
-                        {
-                          "type": "text",
-                          "text": app,
+                          "text": "count",
                           "wrap": true,
                           "color": "#666666",
                           "size": "md",
