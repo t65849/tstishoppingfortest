@@ -76,22 +76,22 @@ app.post('/messages', function (request, response) {
   var result = bodys.result;
   result = JSON.stringify(result);
   var sourcetype = bodys.result.sourcetype;
-  sourcetype = sourcetype.toString();
+  //sourcetype = sourcetype.toString();
   var count = bodys.result.count;
-  count = count.toString();
+  //count = count.toString();
   var sid = bodys.sid;
-  sid = sid.toString();
+  //sid = sid.toString();
   var results_link = bodys.results_link;
-  results_link = results_link.toString();
+  //results_link = results_link.toString();
   var search_name = bodys.search_name;
   if (search_name == null) {
     search_name = "null";
   }
-  search_name = search_name.toString();
+  //search_name = search_name.toString();
   var owner = bodys.owner;
-  owner = owner.toString();
+  //owner = owner.toString();
   var app = bodys.app;
-  app = app.toString();
+  //app = app.toString();
   /*SendFlexMessage("R230fdb328b23308c554983ab07a4543f", sourcetype, count, sid, results_link, search_name, owner, app, 'tstiisacompanyfortatung', null, function (ret) {
     //
   });
