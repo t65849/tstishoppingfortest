@@ -44,9 +44,26 @@ app.post('/messages', function (request, response) {
   var bodys = request.body;
   if(bodys.result !== undefined){
     var result = bodys.result;
+    var entrie = Object.entries(result);
+    var key = Object.keys(result);
+    var value = Object.values(result);
+    console.log(typeof(entrie));
+    for(var i =0; i < entrie.length; i++){
+      if(key[i].indexOf("time") != -1){
+        var tmp = new Array();
+        tmp = entrie[0];
+        entrie[0] = entrie[i];
+        entrie[i] = tmp;
+      }
+    }
+    console.log(JSON.stringify(entrie));
+    var copy = Object.assign({}, entrie);
+    console.log(typeof(entrie));
+    console.log(typeof(copy));
+    console.log(JSON.stringify(copy));
+    /*SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", result, 'tstiisacompanyfortatung', null, function (ret) {
+    });*/
     //R230fdb328b23308c554983ab07a4543f
-    SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", result, 'tstiisacompanyfortatung', null, function (ret) {
-    });
   } else {
     console.log("Conversation");
   }
