@@ -56,9 +56,6 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
   if (password == 'tstiisacompanyfortatung') {
     var flex_content = new Array();
     var result_keys = Object.keys(result);
-    console.log(JSON.stringify(result_keys));
-    var result_values = Object.values(result);
-    console.log(JSON.stringify(result_values));
     var result_entries = Object.entries(result);
     console.log(JSON.stringify(result_entries));
     for(var i =0; i < result_entries.length; i++){
@@ -69,15 +66,9 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
       }
     }
     console.log(JSON.stringify(result_entries));
-    var result_keys = Object.keys(result_entries);
-    console.log(JSON.stringify(result_keys));
-    var result_values = Object.values(result_entries);
-    console.log(JSON.stringify(result_values));
     for(var i = 0; i < result_entries.length; i++){
-      var keyss = result_entries[i][0];
-      console.log(JSON.stringify(keyss));
-      var valuess = result_entries[i][1];
-      console.log(JSON.stringify(valuess));
+      var entries_keys = result_entries[i][0]; //[0](第i個陣列的第一個)，[1](第i個陣列的第二個)
+      var entries_values = result_entries[i][1]; //[["time","8/20測試"],["count","8"],["sourcetype","mongod"],["raw","一切正常"]]
       var result_data = {
         "type": "box",
         "layout": "baseline",
@@ -85,7 +76,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
         "contents": [
           {
             "type": "text",
-            "text": result_keys[i]+"：",
+            "text":entries_keys+"：",
             "align": "end",
             "color": "#aaaaaa",
             "size": "md",
@@ -93,7 +84,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
           },
           {
             "type": "text",
-            "text": result_values[i],
+            "text": entries_values,
             "wrap": true,
             "color": "#666666",
             "size": "md",
@@ -103,8 +94,8 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
       };
       flex_content.push(result_data);
     }
-    //console.log("103");
-    //console.log(JSON.stringify(flex_content));
+    console.log("103");
+    console.log(JSON.stringify(flex_content));
     var data = {
       'to': userId,
       'messages': [
