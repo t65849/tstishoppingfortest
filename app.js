@@ -98,11 +98,9 @@ app.post('/messages', function (request, response) {
   SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", sourcetype, count, sid, results_link, search_name, owner, app, 'tstiisacompanyfortatung', null, function (ret) {
     //
   });*/
-  SendMessage("R230fdb328b23308c554983ab07a4543f", result, 'tstiisacompanyfortatung', null, function (ret) {
-
-  });
+  /*SendMessage("R230fdb328b23308c554983ab07a4543f", result, 'tstiisacompanyfortatung', null, function (ret) {
+  });*/
   SendMessage("C3febbf29c0f0bd33601da24998fde2da", result, 'tstiisacompanyfortatung', null, function (ret) {
-
   });
   //var messages = "sourcetype:"+sourcetype+"\n" + "count:"+count+"\n" + "sid:"+sid+"\n" + "results_link:"+results_link+"\n" + "search_name:"+search_name+"\n" + "owner:"+owner+"\n" + "app:"+app;
   /*SendMessage(acct, messages, 'tstiisacompanyfortatung', reply_token, function (ret) {
