@@ -44,21 +44,7 @@ app.post('/messages', function (request, response) {
   var bodys = request.body;
   if(bodys.result !== undefined){
     var result = bodys.result;
-    var entrie = Object.entries(result);
-    var key = Object.keys(result);
-    var value = Object.values(result);
-    console.log(typeof(entrie));
-    for(var i =0; i < entrie.length; i++){
-      if(key[i].indexOf("time") != -1){
-        var tmp = new Array();
-        tmp = entrie[0];
-        entrie[0] = entrie[i];
-        entrie[i] = tmp;
-      }
-    }
-    console.log(JSON.stringify(entrie));
-    console.log(typeof(entrie));
-    SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", entrie, 'tstiisacompanyfortatung', null, function (ret) {
+    SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", result, 'tstiisacompanyfortatung', null, function (ret) {
     });
     //R230fdb328b23308c554983ab07a4543f
   } else {
@@ -73,8 +59,20 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
     console.log(JSON.stringify(result_keys));
     var result_values = Object.values(result);
     console.log(JSON.stringify(result_values));
-    for(var i = 0; i < result_keys.length; i++){
-      var result_entries = Object.entries(result);
+    var result_entries = Object.entries(result);
+    for(var i =0; i < result_entries.length; i++){
+      if(result_keys[i].indexOf("time") != -1 || result_keys[i].indexOf("Time") != -1 || result_keys[i].indexOf("TIME") != -1){
+        var tmp = result_entries[0];
+        result_entries[0] = result_entries[i];
+        result_entries[i] = tmp;
+      }
+    }
+    console.log(JSON.stringify(result_entries));
+    var result_keys = Object.keys(result_entries);
+    console.log(JSON.stringify(result_keys));
+    var result_values = Object.values(result_entries);
+    console.log(JSON.stringify(result_values));
+    for(var i = 0; i < result_entries.length; i++){
       var result_data = {
         "type": "box",
         "layout": "baseline",
