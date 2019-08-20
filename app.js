@@ -58,7 +58,7 @@ app.post('/messages', function (request, response) {
     }
     console.log(JSON.stringify(entrie));
     console.log(typeof(entrie));
-    SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", entries, 'tstiisacompanyfortatung', null, function (ret) {
+    SendFlexMessage("C3febbf29c0f0bd33601da24998fde2da", entrie, 'tstiisacompanyfortatung', null, function (ret) {
     });
     //R230fdb328b23308c554983ab07a4543f
   } else {
