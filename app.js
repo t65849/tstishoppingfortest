@@ -150,7 +150,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
         "contents": [
           {
             "type": "text",
-            "text": result_entries[i].keys+"：",
+            "text": result_keys[i]+"：",
             "align": "center",
             "color": "#aaaaaa",
             "size": "md",
@@ -158,7 +158,7 @@ function SendFlexMessage(userId, result, password, reply_token, callback) {
           },
           {
             "type": "text",
-            "text": result_entries[i].values,
+            "text": result_values[i],
             "wrap": true,
             "color": "#666666",
             "size": "md",
